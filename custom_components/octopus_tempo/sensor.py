@@ -97,3 +97,27 @@ class OctopusTempoColorSensor(SensorEntity):
             self._state = couleur_entity.state
         else:
             self._state = None
+
+class OctopusTempoTomorrowColorSensor(SensorEntity):
+
+    _attr_name = "Octopus Tempo Couleur Demain"
+    _attr_unique_id = "octopus_tempo_couleur_demain"
+
+    def __init__(self, hass):
+        self.hass = hass
+        self._state = None
+
+    @property
+    def native_value(self):
+        return self._state
+
+    async def async_update(self):
+
+        couleur_entity = self.hass.states.get(
+            "sensor.tarif_edf_tempo_9kva_tarif_tempo_couleur_demain"
+        )
+
+        if couleur_entity:
+            self._state = couleur_entity.state
+        else:
+            self._state = None
