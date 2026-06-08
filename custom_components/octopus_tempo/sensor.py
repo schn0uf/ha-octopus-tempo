@@ -15,6 +15,7 @@ async def async_setup_entry(
         [
             OctopusTempoCurrentPriceSensor(hass, entry),
             OctopusTempoColorSensor(hass),
+            OctopusTempoTomorrowColorSensor(hass),
         ],
         True,
     )
