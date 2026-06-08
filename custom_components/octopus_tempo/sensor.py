@@ -36,6 +36,10 @@ class OctopusTempoCurrentPriceSensor(SensorEntity):
     def native_value(self):
         return self._state
 
+    @property
+    def state(self):
+        return self._state
+
     async def async_update(self):
 
         couleur_entity = self.hass.states.get(
@@ -87,6 +91,10 @@ class OctopusTempoColorSensor(SensorEntity):
     def native_value(self):
         return self._state
 
+    @property
+    def state(self):
+        return self._state
+
     async def async_update(self):
 
         couleur_entity = self.hass.states.get(
@@ -97,6 +105,7 @@ class OctopusTempoColorSensor(SensorEntity):
             self._state = couleur_entity.state
         else:
             self._state = None
+
 
 class OctopusTempoTomorrowColorSensor(SensorEntity):
 
@@ -109,6 +118,10 @@ class OctopusTempoTomorrowColorSensor(SensorEntity):
 
     @property
     def native_value(self):
+        return self._state
+
+    @property
+    def state(self):
         return self._state
 
     async def async_update(self):
