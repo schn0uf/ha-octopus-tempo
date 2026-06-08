@@ -14,7 +14,7 @@ async def async_setup_entry(
 ):
     await hass.config_entries.async_forward_entry_setups(
         entry,
-        ["sensor"],
+        ["sensor", "binary_sensor"],
     )
 
     return True
